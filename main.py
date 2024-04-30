@@ -1,11 +1,11 @@
-import requests
 from gpt_tools import GPTChat
 from arxiv_tools import get_arxiv_papers
 from pdf_tools import extract_text_from_pdf
 import re
+from security import safe_requests
 
 def download_pdf(url, filename):
-    response = requests.get(url)
+    response = safe_requests.get(url)
     with open(filename, 'wb') as f:
         f.write(response.content)
 
