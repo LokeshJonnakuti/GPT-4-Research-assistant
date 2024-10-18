@@ -5,7 +5,7 @@ from pdf_tools import extract_text_from_pdf
 import re
 
 def download_pdf(url, filename):
-    response = requests.get(url)
+    response = requests.get(url, timeout=60)
     with open(filename, 'wb') as f:
         f.write(response.content)
 
